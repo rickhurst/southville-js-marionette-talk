@@ -22,6 +22,14 @@
 		footer {
 			clear: left;
 		}
+
+		.field label {
+			display: block;
+		}
+		.field input {
+			width: 80%;
+			line-height:1.5em;
+		}
 		</style>
 	</head>
 	<body>
@@ -42,6 +50,7 @@
 
 		<script type="text/template" id="default-footer-content">
 		<p>Footer content</p>
+		<p><a href="#" class="page-add">add page</a></p>
 		</script>
 
 		<script type="text/template" id="sidebar-nav">
@@ -63,6 +72,26 @@
 
 		<script type="text/template" id="page-main-content">
 		<p><%= content %></p>
+		</script>
+
+		<script type="text/template" id="page-add-form">
+		<form>
+			<div class="field">
+				<label>Title</label>
+				<input type="text" id="title" />
+			</div>
+			<div class="field">
+				<label>Content</label>
+				<input type="text" id="content" />
+			</div>
+			<div class="field">
+				<label>href</label>
+				<input type="text" id="href" />
+			</div>
+			<div class="field">
+				<button>Add</button>
+			</div>
+		</form>
 		</script>
 
 		<script src="/js/lib/jquery-1.9.1.min.js"></script>

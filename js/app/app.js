@@ -22,7 +22,14 @@ MyApp.defaultContentView = Backbone.Marionette.ItemView.extend({
 });
 
 MyApp.defaultFooterContentView = Backbone.Marionette.ItemView.extend({
-	template:'#default-footer-content'
+	template:'#default-footer-content',
+	events: {
+		'click a.page-add': 'pageAdd'
+	},
+	pageAdd: function(e){
+		e.preventDefault();
+		MyApp.router.navigate('page-add', {trigger: true});
+	}
 });
 
 MyApp.defaultHeaderContentView = Backbone.Marionette.ItemView.extend({
@@ -37,9 +44,32 @@ MyApp.pageContentView = Backbone.Marionette.ItemView.extend({
 	template:'#page-main-content'
 });
 
+MyApp.pageAddFormView = Backbone.Marionette.ItemView.extend({
+	template:'#page-add-form',
+	ui: {
+		'submit' : 'button',
+		'title' : 'input#title',
+		'content': 'input#content',
+		'href': 'input#href'
+	},
+	events: {
+		'click button': "addNewPage"
+	},
+	addNewPage: function(e){
+		e.preventDefault();
+		var page = new MyApp.Nav.NavLink({
+			text: this.ui.title.val(),
+			content: this.ui.content.val(),
+			href: this.ui.href.val()
+		});
+		MyApp.Nav.navItems.add(page);
+	}
+});
+
 MyApp.Router = Marionette.AppRouter.extend({
     appRoutes: {
-        '': 'defaultContent'
+        '': 'defaultContent',
+        'page-add': 'showPageAdd'
     }
 });
 
@@ -70,8 +100,14 @@ MyApp.Controller = Marionette.Controller.extend({
 		});
 		MyApp.headerRegion.show(pageHeaderView);
 		MyApp.mainRegion.show(pageContentView);
-		MyApp.router.navigate(model.get('href'), {trigger: true});
+		MyApp.router.navigate(model.get('href'), {trigger: false});
 	},
+
+	showPageAdd: function(){
+
+		var pageContentView = new MyApp.pageAddFormView();
+		MyApp.mainRegion.show(pageContentView);
+	}
 
 
 });
