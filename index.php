@@ -44,8 +44,13 @@
 		<p>Footer content</p>
 		</script>
 
-		<script type="text/template" id="default-sidebar-content">
-		<p>sidebar content</p>
+		<script type="text/template" id="sidebar-nav">
+		<ul>
+		</ul>
+		</script>
+
+		<script type="text/template" id="sidebar-nav-item">
+		<a href="#"><%= text %></a>
 		</script>
 
 		<script type="text/template" id="default-header-content">
@@ -74,22 +79,44 @@
 	    	template:'#default-footer-content'
 	    });
 
-	   	MyApp.defaultSidebarContentView = Backbone.Marionette.ItemView.extend({
-	    	template:'#default-sidebar-content'
-	    });
-
 	   	MyApp.defaultHeaderContentView = Backbone.Marionette.ItemView.extend({
 	    	template:'#default-header-content'
 	    });
 
+	   	// side nav
+	   	MyApp.NavLink = Backbone.Model.extend({});
+	   	MyApp.NavLinks = Backbone.Collection.extend({
+	   		model: MyApp.NavLink
+	   	});
+
+	    MyApp.SideNavItemView = Backbone.Marionette.ItemView.extend({
+	    	template: '#sidebar-nav-item',
+	    	tagName: 'li'
+	    });
+
+	    MyApp.SideNavView = Backbone.Marionette.CompositeView.extend({
+	    	template:'#sidebar-nav',
+	    	itemView: MyApp.SideNavItemView,
+	    	itemViewContainer: 'ul',
+	    	tagName: 'nav'
+	    });
+
+	    var navLinks = new MyApp.NavLinks([
+	    	new MyApp.NavLink({text: 'foo'}),
+	    	new MyApp.NavLink({text: 'bar'})
+	    ]);
+
 	    var defaultContentView = new MyApp.defaultContentView();
 	    var defaultFooterContentView = new MyApp.defaultFooterContentView();
-	    var defaultSidebarContentView = new MyApp.defaultSidebarContentView();
 	    var defaultHeaderContentView = new MyApp.defaultHeaderContentView();
+
+	    var sideNavView = new MyApp.SideNavView({
+	    	collection: navLinks
+	    });
 
 	    MyApp.mainRegion.show(defaultContentView);
 	    MyApp.footerRegion.show(defaultFooterContentView);
-	    MyApp.sidebarRegion.show(defaultSidebarContentView);
+	    MyApp.sidebarRegion.show(sideNavView);
 	    MyApp.headerRegion.show(defaultHeaderContentView);
 
 	    $(document).ready(function(){
