@@ -18,7 +18,14 @@ MyApp.module("Nav", function(Nav, App, Backbone, Marionette, $_, _) {
 
 	Nav.SideNavItemView = Backbone.Marionette.ItemView.extend({
 		template: '#sidebar-nav-item',
-		tagName: 'li'
+		tagName: 'li',
+		events: {
+			'click a' : 'changePage'
+		},
+		changePage: function(e){
+			e.preventDefault();
+			App.vent.trigger('nav:changePage', this.model);
+		}
 	});
 
 	Nav.SideNavView = Backbone.Marionette.CompositeView.extend({

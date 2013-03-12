@@ -57,6 +57,14 @@
 		<p>header content</p>
 		</script>
 
+		<script type="text/template" id="page-header-content">
+		<p><%= text %></p>
+		</script>
+
+		<script type="text/template" id="page-main-content">
+		<p><%= content %></p>
+		</script>
+
 		<script src="/js/lib/jquery-1.9.1.min.js"></script>
 		<script src="/js/lib/underscore-min.js"></script>
 		<script src="/js/lib/backbone-min.js"></script>
@@ -67,7 +75,10 @@
 		<script>
 
 	    $(document).ready(function(){
-			MyApp.start({navItems:[{text: 'foo'}, {text: 'bar'}]});
+			MyApp.start({navItems:[
+					{text: 'foo', href: 'foo-page', content: 'foo page content'}, 
+					{text: 'bar', href: 'bar-page', content: 'bar page content'}
+			]});
 		});
 
 		</script>
