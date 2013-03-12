@@ -63,15 +63,11 @@
 		<script src="/js/lib/backbone.marionette.min.js"></script>
 
 		<script src="/js/app/app.js"></script>
+		<script src="/js/app/nav.module.js"></script>
 		<script>
 
-	    var navLinks = new MyApp.NavLinks([
-	    	new MyApp.NavLink({text: 'foo'}),
-	    	new MyApp.NavLink({text: 'bar'})
-	    ]);
-
 	    $(document).ready(function(){
-			MyApp.start({navItems:navLinks});
+			MyApp.start({navItems:[{text: 'foo'}, {text: 'bar'}]});
 		});
 
 		</script>
