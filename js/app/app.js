@@ -46,6 +46,9 @@ MyApp.pageContentView = Backbone.Marionette.ItemView.extend({
 
 MyApp.pageAddFormView = Backbone.Marionette.ItemView.extend({
 	template:'#page-add-form',
+	initialize: function(){
+		this.model = new MyApp.Nav.NavLink()
+	},
 	ui: {
 		'submit' : 'button',
 		'title' : 'input#title',
@@ -57,12 +60,11 @@ MyApp.pageAddFormView = Backbone.Marionette.ItemView.extend({
 	},
 	addNewPage: function(e){
 		e.preventDefault();
-		var page = new MyApp.Nav.NavLink({
-			text: this.ui.title.val(),
-			content: this.ui.content.val(),
-			href: this.ui.href.val()
-		});
-		MyApp.Nav.navItems.add(page);
+
+		this.model.set('text', this.ui.title.val());
+		this.model.set('content', this.ui.content.val());
+		this.model.set('href', this.ui.href.val());
+		MyApp.Nav.navItems.add(this.model);
 	}
 });
 
