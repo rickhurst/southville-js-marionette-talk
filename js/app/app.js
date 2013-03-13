@@ -65,6 +65,7 @@ MyApp.pageAddFormView = Backbone.Marionette.ItemView.extend({
 		this.model.set('content', this.ui.content.val());
 		this.model.set('href', this.ui.href.val());
 		MyApp.Nav.navItems.add(this.model);
+		MyApp.vent.trigger('notify:message', 'page added');
 	}
 });
 

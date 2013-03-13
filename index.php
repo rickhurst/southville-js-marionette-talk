@@ -30,9 +30,16 @@
 			width: 80%;
 			line-height:1.5em;
 		}
+
+		#notifications .message {
+			background: pink;
+			border: 1px solid red;
+			padding:0.5em;
+		}
 		</style>
 	</head>
 	<body>
+		<div id="notifications"></div>
 		<header>
 		</header>
 		
@@ -94,6 +101,10 @@
 		</form>
 		</script>
 
+		<script type="text/template" id="notifications-template">
+			<div class="message"><%= message %></div>
+		</script>
+
 		<script src="/js/lib/jquery-1.9.1.min.js"></script>
 		<script src="/js/lib/underscore-min.js"></script>
 		<script src="/js/lib/backbone-min.js"></script>
@@ -101,6 +112,7 @@
 
 		<script src="/js/app/app.js"></script>
 		<script src="/js/app/nav.module.js"></script>
+		<script src="/js/app/notification.module.js"></script>
 		<script>
 
 	    $(document).ready(function(){

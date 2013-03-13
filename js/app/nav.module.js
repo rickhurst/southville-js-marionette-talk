@@ -25,6 +25,7 @@ MyApp.module("Nav", function(Nav, App, Backbone, Marionette, $_, _) {
 		changePage: function(e){
 			e.preventDefault();
 			App.vent.trigger('nav:changePage', this.model);
+				MyApp.vent.trigger('notify:message', 'page changed: ' + this.model.get('text'));
 		}
 	});
 
