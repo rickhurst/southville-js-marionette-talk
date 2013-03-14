@@ -111,5 +111,6 @@
 		});
 
 		</script>
+		<!-- example 6 showing page edit form and updating -->
 	</body>
 </html>
