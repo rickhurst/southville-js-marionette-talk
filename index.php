@@ -123,5 +123,6 @@
 		});
 
 		</script>
+		<!-- example 7 showing notification module listening for events -->
 	</body>
 </html>
