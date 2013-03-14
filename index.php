@@ -71,5 +71,6 @@
 		});
 
 		</script>
+		<!-- example 4 - nav module created, data passed in as array of objects -->
 	</body>
 </html>
