@@ -99,5 +99,8 @@
 
 
 		</script>
+		<!-- 
+	    example 1 - shows basic app setup and itemview rendering in region 
+	    -->
 	</body>
 </html>
