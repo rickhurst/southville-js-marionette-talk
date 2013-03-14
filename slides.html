@@ -9,6 +9,7 @@
 
 	article {
 		min-height: 1000px;
+		padding-top:50px;
 	}
 
 	article h1 {
@@ -21,14 +22,13 @@
 		<li><a href="#slide-1">What is Backbone Marionette and why would you use it?</a></li>
 		<li><a href="#slide-2">Single page apps vs Progressive enhancement</a></li>
 		<li><a href="#slide-3">Dependencies</a></li>
-		<li>Regions</li>
-		<li>ItemView</li>
-		<li>CompositeView</li>
-		<li>Layout</li>
-		<li>Events</li>
-		<li>Router</li>
-		<li>Modules</li>
-		<li>Serialize data vs model</li>
+		<li><a href="#slide-4">Regions</a></li>
+		<li><a href="#slide-5">ItemView</a></li>
+		<li><a href="#slide-6">CompositeView</a></li>
+		<li><a href="#slide-7">Layout</a></li>
+		<li><a href="#slide-8">Events</a></li>
+		<li><a href="#slide-9">Router</a></li>
+		<li><a href="#slide-10">Modules</a></li>
 	</ul>
 </article>
 
@@ -39,6 +39,7 @@
 		<li>Collection of common design and implementation patterns</li>
 		<li>Brings an application architecture to Backbone</li>
 		<li>View management and memory management</li>
+		<li>Reduce boilerplate code</li>
 	</ul>
 </article>
 
@@ -68,6 +69,7 @@
 <article class="slide" id="slide-5">
 	<h1>ItemView</h1>
 	<p>Used to render a model</p>
+	<p>Serialize data vs model</p>
 </article>
 
 <article class="slide" id="slide-6">
@@ -78,6 +80,21 @@
 <article class="slide" id="slide-7">
 	<h1>Layout</h1>
 	<p>Used in place of an ItemView when you want to render more than one model or collection in different regions</p>
+</article>
+
+<article class="slide" id="slide-8">
+	<h1>Events</h1>
+	<p>App level event aggregator used to broadcast and listen to events in separate parts of the app, allowing it to be built in a loosely coupled way</p>
+</article>
+
+<article class="slide" id="slide-9">
+	<h1>Router</h1>
+	<p>Reduce the boilerplate code of handling route events and then calling a single method on another object. Have your routers configured to call the method on your object, directly.</p>
+</article>
+
+<article class="slide" id="slide-10">
+	<h1>Modules</h1>
+	<p>useful for creating modular, encapsulated applications</p>
 </article>
 
 </html>
