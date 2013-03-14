@@ -75,5 +75,8 @@
 		});
 
 		</script>
+		<!--
+		Example 3 shows app being started with data passed straight to the .start
+		-->
 	</body>
 </html>
