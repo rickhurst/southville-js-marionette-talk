@@ -126,5 +126,8 @@
 
 
 		</script>
+		<!--
+		example 2 shows a composite view being populated and rendered in a region
+		-->
 	</body>
 </html>
