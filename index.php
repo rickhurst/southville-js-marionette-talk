@@ -82,5 +82,6 @@
 		});
 
 		</script>
+		<!-- example 5 showing router dynamic page content view -->
 	</body>
 </html>
